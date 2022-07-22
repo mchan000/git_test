@@ -1,0 +1,44 @@
+.container{
+    text-align: center;
+    color: cornsilk;
+    font-family: Georgia, Optima, Segoe, "Segoe UI";
+    font-size: 16px;
+}
+
+body{
+    background-color: #e5b0a4;
+}
+
+.clock{
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid #1f3b2c;
+    width: 500px;
+    height: 500px;
+}
+
+#countdown{
+    font-family: Georgia, Optima, Segoe, "Segoe UI";
+    font-size: 100px;
+    color: cornsilk;
+    height: 100px;
+}
+
+button:hover{
+    opacity: 0.5;
+    
+}
+
+
+#start, #pause{
+    display: inline;
+    width: 100px;
+    height: 50px;
+    border: cornsilk;
+    background-color: #588068;
+    border-color: #1f3b2c;
+    color: cornsilk;
+}
