@@ -14,6 +14,7 @@ body{
     justify-content: center;
     background-color: #a3b899;
     min-height: 100vh;
+    transition: 5s;
 }
 
 .app{
@@ -46,7 +47,6 @@ body{
     height: 60vh;
     width: 100%;
 
-    border: #dde6d5 solid 2px;
     background-color: #dde6d5;
 }
 
@@ -59,7 +59,7 @@ body{
     font-size: 10vh;
 
     border-bottom: #57762C dashed 1px;
-    width: 40vh;
+    width: 50vh;
 }
 
 #counter{
@@ -75,7 +75,7 @@ body{
 }
 
 .btn{
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: space-evenly;
 
@@ -86,8 +86,6 @@ body{
     width: 13vh;
     height: 5vh;
 
-    margin: 0 -25%;
-
     font-size: 2vh;
     font-family: inherit;
     color: cornsilk;
@@ -96,14 +94,16 @@ body{
     background-color: #a3b899;
     border: 1px solid #a3b899;
 
-    transition: 0.2s;
+
 
 }
 
-#start:hover, #pause:hover{
+button:hover{
+    transition: 0.2s;
     box-shadow: 0 0 50px #667b68;
 }
 
-#start:active, #pause:active{
-    background-color: #667b68;
+button:active{
+    transition: 0s;
+    opacity: 0.5;
 }

@@ -1,4 +1,3 @@
-
 let paused = true
 let breakTime = false
 let studyCounter = 1
@@ -8,15 +7,17 @@ let minutes, seconds;
 function counterSelect(){
     if(studyCounter % 8 == 0){
         difference = 900;
-        document.getElementById("section").innerHTML = "Long break"
+        document.getElementById("section").innerHTML = "Long break";
     }
     else if(studyCounter % 2 == 0){
         difference = 300;
-        document.getElementById("section").innerHTML = "Short break"
+        document.getElementById("section").innerHTML = "Short break";
     }
     else{
         difference = 1500;
-        document.getElementById("section").innerHTML = "Time to study!"
+        document.getElementById("section").innerHTML = "Time to study!";
+        peony();
+
     }
 }
 
@@ -40,11 +41,8 @@ function startCount(){
 
     }
     else if(paused == false){
-        if(difference < 0){
+        if(difference == 1500 || difference < 0){
             counterSelect()
-        }
-        if(difference == 5){
-            document.getElementById("section").innerHTML = "Time to study!"
         }
         clearInterval(countDown);
         countDown = setInterval(function(){
@@ -86,7 +84,16 @@ function startCount(){
 }
 
 function peony(){
-    document.getElementById("")
+    document.body.style.backgroundColor = "#c87782"
+    document.getElementById("section").style.color = "#9c4a51"
+    document.getElementById("counter").style.color = "#9c4a51"
+    document.getElementById("countdown").style.borderBottom = "#9c4a51 dashed 1px"
+    document.getElementById("start").style.backgroundColor = "#c87782"
+    document.getElementById("pause").style.backgroundColor = "#c87782"
+    document.getElementById("start").style.border = "#c87782 1px solid"
+    document.getElementById("pause").style.border = "#c87782 1px solid"
+    document.getElementsByClassName("clock")[0].style.backgroundColor = "#e2b5b8"
+
 }
 
 startBtn.addEventListener('click', startCount);
