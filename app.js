@@ -1,15 +1,25 @@
 
 let paused = true
 let breakTime = false
-let difference;
+let studyCounter = 1
+let difference = 1500;
 let minutes, seconds;
 
-if(breakTime = false){
-    difference = 1500;
+function counterSelect(){
+    if(studyCounter % 8 == 0){
+        difference = 900;
+        document.getElementById("section").innerHTML = "Long break"
+    }
+    else if(studyCounter % 2 == 0){
+        difference = 300;
+        document.getElementById("section").innerHTML = "Short break"
+    }
+    else{
+        difference = 1500;
+        document.getElementById("section").innerHTML = "Time to study!"
+    }
 }
-else{
-    difference = 300;
-}
+
 
 let startBtn = document.querySelector('#start');
 let pauseBtn = document.querySelector('#pause');
@@ -30,6 +40,12 @@ function startCount(){
 
     }
     else if(paused == false){
+        if(difference < 0){
+            counterSelect()
+        }
+        if(difference == 5){
+            document.getElementById("section").innerHTML = "Time to study!"
+        }
         clearInterval(countDown);
         countDown = setInterval(function(){
             difference = difference - 1;
@@ -48,13 +64,29 @@ function startCount(){
             document.title = minutes + ":" + seconds;
     
             if (difference < 0){
+                studyCounter = studyCounter + 1;
                 clearInterval(countDown);
                 studyOver.play();
-                document.getElementById("countdown").innerHTML = "Break time";
-                document.title = "Florodoro"
+                counterSelect();
+                if(studyCounter % 8 == 0){
+                    document.getElementById("countdown").innerHTML = "15:00";
+                }
+                else if (studyCounter % 2 == 0){
+                    document.getElementById("countdown").innerHTML = "05:00";
+                }
+                else{
+                    document.getElementById("countdown").innerHTML = "25:00";
+                    document.getElementById("counter").innerHTML = "Study Session #" + (2 % studyCounter);
+                }
+                document.title = "Florodoro";
+                countDown = 0;
             }
         }, 1000);
     }
+}
+
+function peony(){
+    document.getElementById("")
 }
 
 startBtn.addEventListener('click', startCount);
